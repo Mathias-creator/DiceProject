@@ -38,6 +38,7 @@ public class RollTwoDice {
             System.out.println("Du rullede: " + face1 + " " + "og" + " " + face2);
             System.out.println();
             System.out.println("sum for dette rul " + midSum);
+            //De næste 9 linjer er statistik, kan de rykkes til updateStatistics() metoden?
             totalSum += midSum;
             if (face1 == face2) {
                 pairs++;

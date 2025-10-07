@@ -32,9 +32,8 @@ public class Craps {
         System.out.print("spil craps (ja/nej)");
         String answer = scanner.nextLine();
         while (!answer.equals("nej")) {
-            int face = rollDie();
-            int face2 = rollDie();
-            int comeOutRoll = face + face2;
+            //Der er ingen grund til at introducere variabler der kun bliver brugt en gang.
+            int comeOutRoll = rollDie() + rollDie();
             System.out.println("Du rullede: " + comeOutRoll);
             System.out.println();
             if (comeOutRoll == 7 || comeOutRoll == 11) {
@@ -55,6 +54,9 @@ public class Craps {
     }
 
     public static boolean rollForPoint(int point) {
+        //Det er farligt at lave flere Scanner objekter der læser fra den samme kilde (System.in)
+        //Hvis den ene Scanner læser foran, kan man få nogle fejl der er svære at finde.
+        //Og hvis den ene Scanner bliver lukket, påvirker det også den anden. Lav en attribut og genbrug Scanner objektet
         Scanner scanner = new Scanner(System.in);
 
         while (true) {
